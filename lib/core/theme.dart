@@ -21,8 +21,8 @@ final appTheme = {
     ),
   ),
   AppTheme.LightAppTheme: ThemeData(
-    backgroundColor: Colors.white,
-    bottomAppBarColor: Colors.grey,
+    backgroundColor: ConstColors.lightBGcolor,
+    bottomAppBarColor: ConstColors.lightAppBarColor,
     primaryColor: ConstColors.lightIconColor,
     appBarTheme: const AppBarTheme(
         iconTheme: IconThemeData(color: ConstColors.lightIconColor)),

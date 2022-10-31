@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_project/bloc/theme_cubit/theme_cubit.dart';
+import 'package:test_project/services/settings_service.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -44,6 +45,7 @@ class SettingsScreen extends StatelessWidget {
                                         context
                                             .read<ThemeCubit>()
                                             .toggleSwitch(true);
+                                        SettingService.theme = true;
                                       },
                                       child: Text('Светлая тема'),
                                     ),
@@ -54,7 +56,9 @@ class SettingsScreen extends StatelessWidget {
                                     ),
                                     TextButton(
                                       onPressed: () {
-                                        BlocProvider.of<ThemeCubit>(context).toggleSwitch(false);
+                                        BlocProvider.of<ThemeCubit>(context)
+                                            .toggleSwitch(false);
+                                        SettingService.theme = false;
                                       },
                                       child: const Text('Темная тема'),
                                     ),

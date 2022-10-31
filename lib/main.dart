@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:test_project/bloc/theme_cubit/theme_cubit.dart';
+import 'package:test_project/core/boxes.dart';
 import 'package:test_project/core/injections.dart';
 import 'package:test_project/ui/main_screen.dart';
 
-void main() {
-  Hive.initFlutter();
+void main() async {
+  await Hive.initFlutter();
+  await HiveBoxes.initHive();
   setupInjections();
   runApp(const MyApp());
 }
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             theme: state.theme,
             title: 'Material App',
-            home: MainScreen(),
+            home: const MainScreen(),
           );
         },
       ),
